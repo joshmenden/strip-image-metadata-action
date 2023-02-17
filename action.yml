@@ -12,3 +12,4 @@ runs:
         sudo apt-get install imagemagick -y
       shell: bash
     - run: mogrify -strip ${{ inputs.path-regex }}
+      shell: bash
