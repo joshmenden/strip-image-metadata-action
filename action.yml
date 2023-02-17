@@ -1,0 +1,14 @@
+name: 'Strip Image Metadata'
+description: 'Strips all image metadata from a given file or directory'
+inputs:
+  path-regex:
+    description: 'The path regex or full path of the file/s that you wish to strip metadata from'
+    required: true
+runs:
+  using: "composite"
+  steps:
+    - run: |
+        sudo apt-get update
+        sudo apt-get install imagemagick -y
+      shell: bash
+    - run: mogrify -strip ${{ inputs.path-regex }}
